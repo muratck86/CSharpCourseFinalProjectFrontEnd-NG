@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Product } from 'src/app/models/product';
 import { HttpClient } from '@angular/common/http'
-import { ProductListModel } from 'src/app/models/productListModel';
 import { ResponseModel } from 'src/app/models/responseModel';
 import { ProductService } from 'src/app/services/product.service';
 
@@ -13,6 +12,7 @@ import { ProductService } from 'src/app/services/product.service';
 export class ProductComponent implements OnInit {
 
   products:Product[] = []
+  dataLoaded = false
 
   constructor(private productService:ProductService) { }
 
@@ -23,6 +23,7 @@ export class ProductComponent implements OnInit {
   getProducts() {
     this.productService.getProducts().subscribe(response => {
       this.products = response.data
+      this.dataLoaded = true
     })
   }
 
