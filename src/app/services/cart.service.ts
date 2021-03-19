@@ -23,6 +23,12 @@ addToCart(product:Product) {
   }
 }
 
+removeFromCart(product:Product) {
+  let item:CartItem = CartItems.find(i => i.product.productId === product.productId)
+
+  CartItems.splice(CartItems.indexOf(item),1)
+}
+
 listCartItems():CartItem[] {
   return CartItems
 }
