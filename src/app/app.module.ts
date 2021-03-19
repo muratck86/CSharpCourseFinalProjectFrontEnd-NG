@@ -9,6 +9,7 @@ import { CategoryComponent } from './components/category/category.component';
 import { NaviComponent } from './components/navi/navi.component';
 import { HttpClientModule } from '@angular/common/http';
 import { VatAddedPipe } from './pipes/vat-added.pipe';
+import { FilterPipe } from './pipes/filter.pipe';
 
 @NgModule({
   declarations: [
@@ -17,6 +18,7 @@ import { VatAddedPipe } from './pipes/vat-added.pipe';
     CategoryComponent,
     NaviComponent,
     VatAddedPipe,
+    FilterPipe
   ],
   imports: [
     BrowserModule,

@@ -7,7 +7,7 @@
     <input type="text" [(ngModel)]="searchText" class="form-control" id="filterText" placeholder="Start typing to search products">
   </div>
 
-  <div *ngIf="searchText.length > 0">
+  <div *ngIf="searchText.length > 2">
     Showing products for "{{searchText}}"
   </div>
 
@@ -23,7 +23,7 @@
     </tr>
 </thead>
 <tbody>
-    <tr *ngFor="let product of products">
+    <tr *ngFor="let product of products | filter:searchText">
         <td>{{product.productId}}</td>
         <td>{{product.productName | uppercase }}</td> <!-- built in pipes uppercase, lowercase -->
         <td>{{product.categoryId}}</td>
