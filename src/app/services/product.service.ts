@@ -3,6 +3,7 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import {ListResponseModel} from '../models/listResponseModel'
 import { Product } from '../models/product';
+import { ResponseModel } from '../models/responseModel';
 
 @Injectable({
   providedIn: 'root'
@@ -21,5 +22,10 @@ export class ProductService {
   getProductsByCategory(categoryId:number):Observable<ListResponseModel<Product>>  {
     let path = this.apiUrl + "products/getbycategoryid?id="+categoryId
     return this.httpClient.get<ListResponseModel<Product>>(path)
+  }
+
+  add(product:Product):Observable<ResponseModel> {
+    let path = this.apiUrl + "products/add"
+    return this.httpClient.post<ResponseModel>(path, product)
   }
 }
